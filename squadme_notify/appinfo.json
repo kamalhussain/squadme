@@ -1,0 +1,39 @@
+{
+  "uuid": "bb0044f0-aafe-4dbe-821e-6ffea80e0568",
+  "shortName": "Squadme Notify",
+  "longName": "Squadme Notify",
+  "companyName": "ALU",
+  "versionCode": 2,
+  "versionLabel": "2.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "message": 1,
+    "name": 0
+  },
+  "resources": {
+    "media": [
+      {
+        "type": "png",
+        "name": "IMAGE_SUN",
+        "file": "img/sun.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_RAIN",
+        "file": "img/rain.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_CLOUD",
+        "file": "img/cloud.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_SNOW",
+        "file": "img/snow.png"
+      }
+    ]
+  }
+}
