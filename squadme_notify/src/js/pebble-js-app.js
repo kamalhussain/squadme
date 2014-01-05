@@ -38,7 +38,8 @@ function checkTethering() {
 function getData() {
     var req = new XMLHttpRequest();
 
-    req.open('GET', "http://webtest.ic.att.com/check_tethering.php");
+    //req.open('GET', "http://webtest.ic.att.com/check_tethering.php");
+    req.open('GET', "http://snoop-wileycoyote.rhcloud.com/squadmate/tether");
 
     req.onreadystatechange = function() {
         callback(req);
@@ -58,7 +59,7 @@ function callback(req) {
             console.log("sending App message: " + JSON.stringify(response));
             console.log(JSON.stringify(response));
 
-            if (response != null ) {
+            if (response.length != 0) {
                 console.log("name : " + response[0].name);
                 console.log("message: " + response[0].status);
 
@@ -87,6 +88,10 @@ function callback(req) {
 
         } else {
             console.log("Error");
+            Pebble.sendAppMessage({
+                "name": 'All',
+                "message": "In the network"
+            });
         }
 
         setTimeout(checkTethering, 5000)
