@@ -13,10 +13,10 @@ $(document).ready(function() {
 
     var buildUI = function(parent, items) {
         $(parent).empty();
-        
+
         $.each(items, function() {
             console.log(JSON.stringify(this));
-            
+
             var ul = $("<tr></tr>");
             ul.appendTo(parent);
 
@@ -28,8 +28,17 @@ $(document).ready(function() {
             } else {
                 action = '<td class="td-actions"><a href="javascript:;" class="btn btn-xs btn-warning"><i class="btn-icon-only icon-remove"></i></a></td>';
             }
+            
+            var distress;
 
-            var li = $('<td>' + this.name + '</td>' + '<td>' + this.temp + '</td>' + action);
+            if (this.distress == "true") {
+                distress = '<td class="td-actions"><a href="javascript:;" class="btn btn-xs btn-primary"><i class="btn-icon-only icon-ok"></i></a></td>';
+
+            } else {
+                distress = '<td class="td-actions"><a href="javascript:;" class="btn btn-xs btn-warning"><i class="btn-icon-only icon-remove"></i></a></td>';
+            }
+
+            var li = $('<td>' + this.name + '</td>' + '<td>' + this.temp +  action + distress);
             li.appendTo(ul);
         });
 
@@ -52,6 +61,18 @@ $(document).ready(function() {
             }
         });
     }
-    
-    getData();
+
+    //getData();
+    var items = [
+        {"name": "Mike", "temp": "86", "tethered": "true", "distress": "false"},
+        {"name": "Justin", "temp": "85", "tethered": "true", "distress": "false"},
+        {"name": "Grace", "temp": "85", "tethered": "true", "distress": "false"},
+        {"name": "Luke", "temp": "90", "tethered": "false", "distress": "true"},
+        {"name": "Jordan", "temp": "79", "tethered": "false", "distress": "false"},
+        {"name": "David", "temp": "80", "tethered": "true", "distress": "false"},
+        {"name": "Nathan", "temp": "85", "tethered": "true", "distress": "false"}
+    ];
+
+    buildUI("#mydata2", items);
+
 });

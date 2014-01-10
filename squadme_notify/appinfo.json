@@ -10,7 +10,8 @@
   },
   "appKeys": {
     "message": 1,
-    "name": 0
+    "name": 0,
+    "distress": 2
   },
   "resources": {
     "media": [

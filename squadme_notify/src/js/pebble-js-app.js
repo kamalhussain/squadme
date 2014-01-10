@@ -148,6 +148,23 @@ function getData2() {
     req.send(null);
 }
 
+function setDistress(val) {
+    var url = "http://snoop-wileycoyote.rhcloud.com/squadmate/distress?name=Kamal&flag=" + val;
+    console.log("calling distress API " + url);
+
+    var req = new XMLHttpRequest();
+    // build the GET request
+    req.open('GET', url);
+    req.onload = function(e) {
+        if (req.readyState == 4) { //whats it?
+            if (req.status == 200) {
+
+            }
+        }
+    };
+    req.send(null);
+}
+
 Pebble.addEventListener("ready",
         function(e) {
             console.log("connecting to API" + e.ready);
@@ -157,7 +174,17 @@ Pebble.addEventListener("ready",
 
 Pebble.addEventListener("appmessage",
         function(e) {
-            console.log("got message!" + e.payload);
+            console.log("got message!" + e.payload.distress);
+
+            if (e.payload.distress == 1) {
+                console.log("calling 1");
+                setDistress("0");
+
+            } else {
+                console.log("calling 2");
+                setDistress("1");
+            }
+
         });
 
 Pebble.addEventListener("webviewclosed",
@@ -165,6 +192,4 @@ Pebble.addEventListener("webviewclosed",
             console.log("webview closed");
             console.log(e.type);
             console.log(e.response);
-        });
-
-
+        }); 
