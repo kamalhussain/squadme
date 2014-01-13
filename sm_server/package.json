@@ -1,0 +1,29 @@
+{
+  "name": "squadmate",
+  "version": "1.0.0",
+  "description": "SquadMate Server",
+  "keywords": [
+    "Node.js",
+    "application"
+  ],
+  "author": {
+    "name": "Tom Hambleton",
+    "email": "tomhambleton@gmail.com"
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "dependencies": {
+    "express": "3.0.3",
+    "jade": "*",
+    "mongodb": "*",
+    "request": "*",
+    "async": "*"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
+}
